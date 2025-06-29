@@ -24,9 +24,10 @@ package-lock.json
 /lang/vendor
 /storage/*.key
 /storage/dcc-data/
+/storage/app/public/
 /test-results
 /vendor
 yarn.lock
 yarn-error.log
-/test-results
-/playwright-report
+/public/build/*
+
