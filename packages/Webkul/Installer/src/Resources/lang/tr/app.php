@@ -206,7 +206,7 @@ return [
             'locales'    => [
                 'ar'    => 'Arapça',
                 'bn'    => 'Bengali',
-                'ca'    => 'Kanada',
+                'ca'    => 'Katalanca',
                 'de'    => 'Almanca',
                 'en'    => 'İngilizce',
                 'es'    => 'İspanyolca',
@@ -214,6 +214,7 @@ return [
                 'fr'    => 'Fransızca',
                 'he'    => 'İbranice',
                 'hi_IN' => 'Hintçe',
+                'id'    => 'Endonezyaca',
                 'it'    => 'İtalyanca',
                 'ja'    => 'Japonca',
                 'nl'    => 'Felemenkçe',

@@ -206,7 +206,7 @@ return [
             'locales' => [
                 'ar'    => 'Árabe',
                 'bn'    => 'Bengalí',
-                'ca'    => 'Canadá',
+                'ca'    => 'Catalán',
                 'de'    => 'Alemán',
                 'en'    => 'Inglés',
                 'es'    => 'Español',
@@ -214,6 +214,7 @@ return [
                 'fr'    => 'Francés',
                 'he'    => 'Hebreo',
                 'hi_IN' => 'Hindi',
+                'id'    => 'Indonesio',
                 'it'    => 'Italiano',
                 'ja'    => 'Japonés',
                 'nl'    => 'Holandés',
