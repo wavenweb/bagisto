@@ -202,9 +202,11 @@ class Installer extends Command
         $this->call('db:wipe');
         $this->call('migrate:fresh');
 
-        $this->warn('Step: Seeding basic data for Bagisto kickstart...');
-        app(BagistoDatabaseSeeder::class)->run($this->getSeederConfiguration());
-        $this->components->info('Basic data seeded successfully.');
+        if (!app()->isProduction()) {
+            $this->warn('Step: Seeding basic data for Bagisto kickstart...');
+            app(BagistoDatabaseSeeder::class)->run($this->getSeederConfiguration());
+            $this->components->info('Basic data seeded successfully.');
+        }
 
         $this->warn('Step: Linking storage directory...');
         $this->call('storage:link');
