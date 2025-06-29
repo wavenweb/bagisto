@@ -297,12 +297,16 @@ class Installer extends Command
      */
     protected function askForDatabaseDetails()
     {
+        $databaseConnection = select(
+            label   : 'Please select the database connection',
+            options : ['mysql', 'pgsql'],
+            default : 'mysql',
+        );
+
+        $defaultPort = $databaseConnection === 'pgsql' ? '5432' : '3306';
+
         $databaseDetails = [
-            'DB_CONNECTION' => select(
-                label   : 'Please select the database connection',
-                options : ['mysql'],
-                default : 'mysql',
-            ),
+            'DB_CONNECTION' => $databaseConnection,
 
             'DB_HOST' => text(
                 label    : 'Please enter the database host',
@@ -312,7 +316,7 @@ class Installer extends Command
 
             'DB_PORT' => text(
                 label    : 'Please enter the database port',
-                default  : $this->getEnvVariable('DB_PORT', '3306'),
+                default  : $this->getEnvVariable('DB_PORT', $defaultPort),
                 required : true
             ),
 
