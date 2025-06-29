@@ -15,8 +15,9 @@ class AttributeGroupTableSeeder extends Seeder
      */
     public function run($parameters = [])
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-
+        if (config('database.default') == 'mysql') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        }
         DB::table('attribute_groups')->delete();
 
         DB::table('attribute_group_mappings')->delete();
@@ -234,6 +235,7 @@ class AttributeGroupTableSeeder extends Seeder
             ],
         ]);
 
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-    }
+        if (config('database.default') == 'mysql') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        }    }
 }
