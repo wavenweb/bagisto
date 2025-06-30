@@ -15,8 +15,12 @@ class AttributeFamilyTableSeeder extends Seeder
      */
     public function run($parameters = [])
     {
-        if (config('database.default') == 'mysql') {
+        $databaseDriver = config('database.default');
+
+        if ($databaseDriver == 'mysql') {
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        } elseif ($databaseDriver == 'pgsql') {
+            DB::statement('SET session_replication_role = replica;');
         }
 
         DB::table('attribute_families')->delete();
@@ -33,8 +37,10 @@ class AttributeFamilyTableSeeder extends Seeder
             ],
         ]);
 
-        if (config('database.default') == 'mysql') {
+        if ($databaseDriver == 'mysql') {
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        } elseif ($databaseDriver == 'pgsql') {
+            DB::statement('SET session_replication_role = DEFAULT;');
         }
     }
 }
