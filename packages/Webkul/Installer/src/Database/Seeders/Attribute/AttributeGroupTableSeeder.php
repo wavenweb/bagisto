@@ -15,12 +15,8 @@ class AttributeGroupTableSeeder extends Seeder
      */
     public function run($parameters = [])
     {
-        $databaseDriver = config('database.default');
-
-        if ($databaseDriver == 'mysql') {
+        if (config('database.default') == 'mysql') {
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        } elseif ($databaseDriver == 'pgsql') {
-            DB::statement('SET session_replication_role = replica;');
         }
         DB::table('attribute_groups')->delete();
 
@@ -239,10 +235,8 @@ class AttributeGroupTableSeeder extends Seeder
             ],
         ]);
 
-        if ($databaseDriver == 'mysql') {
+        if (config('database.default') == 'mysql') {
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-        } elseif ($databaseDriver == 'pgsql') {
-            DB::statement('SET session_replication_role = DEFAULT;');
         }
     }
 }
