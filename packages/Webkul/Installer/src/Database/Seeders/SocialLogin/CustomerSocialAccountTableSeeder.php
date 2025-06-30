@@ -20,6 +20,7 @@ class CustomerSocialAccountTableSeeder extends Seeder
 
         DB::table('core_config')->insert([
             [
+                'id'           => 17,
                 'code'         => 'customer.settings.social_login.enable_facebook',
                 'value'        => '1',
                 'channel_code' => 'default',
@@ -27,6 +28,7 @@ class CustomerSocialAccountTableSeeder extends Seeder
                 'created_at'   => $now,
                 'updated_at'   => $now,
             ], [
+                'id'           => 18,
                 'code'         => 'customer.settings.social_login.enable_twitter',
                 'value'        => '1',
                 'channel_code' => 'default',
@@ -34,6 +36,7 @@ class CustomerSocialAccountTableSeeder extends Seeder
                 'created_at'   => $now,
                 'updated_at'   => $now,
             ], [
+                'id'           => 19,
                 'code'         => 'customer.settings.social_login.enable_google',
                 'value'        => '1',
                 'channel_code' => 'default',
@@ -41,6 +44,7 @@ class CustomerSocialAccountTableSeeder extends Seeder
                 'created_at'   => $now,
                 'updated_at'   => $now,
             ], [
+                'id'           => 20,
                 'code'         => 'customer.settings.social_login.enable_linkedin',
                 'value'        => '1',
                 'channel_code' => 'default',
@@ -48,6 +52,7 @@ class CustomerSocialAccountTableSeeder extends Seeder
                 'created_at'   => $now,
                 'updated_at'   => $now,
             ], [
+                'id'           => 21,
                 'code'         => 'customer.settings.social_login.enable_github',
                 'value'        => '1',
                 'channel_code' => 'default',
