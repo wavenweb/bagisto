@@ -20,7 +20,8 @@ class AttributeGroupTableSeeder extends Seeder
         if ($databaseDriver == 'mysql') {
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         } elseif ($databaseDriver == 'pgsql') {
-            DB::statement('SET session_replication_role = replica;');
+            // Use SET CONSTRAINTS instead of session_replication_role
+            DB::statement('SET CONSTRAINTS ALL DEFERRED;');
         }
 
         DB::table('attribute_groups')->delete();
@@ -243,7 +244,8 @@ class AttributeGroupTableSeeder extends Seeder
         if ($databaseDriver == 'mysql') {
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         } elseif ($databaseDriver == 'pgsql') {
-            DB::statement('SET session_replication_role = DEFAULT;');
+            // Use SET CONSTRAINTS instead of session_replication_role
+            DB::statement('SET CONSTRAINTS ALL IMMEDIATE;');
         }
     }
 }
